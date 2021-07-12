@@ -19,15 +19,16 @@ function crypto(){
     }
 
     function getDecrypt(input) {
+        console.log(input)
         const dec = Crypto.AES.decrypt(input, key);
         return dec.toString(Crypto.enc.Utf8);
     }
 
     return {
-        getEncrypt: getEncrypt,
-        getDecrypt: getDecrypt,
-        cryptPassword: cryptPassword,
-        compare: compare
+        getEncrypt, 
+        getDecrypt ,
+        cryptPassword ,
+        compare,
     }
 }
 

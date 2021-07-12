@@ -18,6 +18,7 @@ function UserToken (isNew, token, full_name, _id, roleNumber, email) {
     } else {
         
         this.token = token;
+        console.log(token);
         var tokenStr = Encrypt.getDecrypt(token).split(split);
         this.full_name =  tokenStr[0];
         this._id = tokenStr[1];
@@ -32,6 +33,7 @@ function UserToken (isNew, token, full_name, _id, roleNumber, email) {
         }
         return false;
     }
+    
 }
 
 module.exports = UserToken;

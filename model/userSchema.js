@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
+mongoose.set('useCreateIndex',true)
 const Schema = mongoose.Schema;
 
 var userSchema = new Schema({
     id: {
         type: String,
-        unique:true,
+        unique: true,
     },
     full_name: {
         type: String,
@@ -15,11 +16,12 @@ var userSchema = new Schema({
     phone_number: {
         type: Number,
     },
-    password:{
-        type:String,
+    password: {
+        type: String,
     },
-    email:{
-        type:String, 
+    email: {
+        type: String,
+        unique: true
     },
     year: {
         type: Number,
@@ -33,12 +35,23 @@ var userSchema = new Schema({
     city: {
         type: String,
     },
-    academic_institution:{
+    academic_institution: {
         type: String,
     },
 
-    roleNumber:{
-        type: Number,
-    }
-    });
-module.exports = mongoose.model("users", userSchema)
+    roleNumber: Number,
+
+    listTestQuestions: [{
+        type: String,
+            // type: Schema.Types.ObjectId,
+            // ref: 'mytest'
+            }],
+     listTestAnswers: [{
+        type: Object,
+                // type: Schema.Types.ObjectId,
+                // ref: 'mytest'
+                },
+                
+            ],
+});
+module.exports = mongoose.model("users", userSchema);
