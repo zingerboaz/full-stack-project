@@ -10,7 +10,7 @@ function replyTestController(){
     
     var newReplyTest=new replyTestSchema(req.body);
         newReplyTest.save(function(err,newDoc){
-            console.log("creat 1");
+            
             if(err){
                 console.log(err);
                     return res.status(400).send(err);
